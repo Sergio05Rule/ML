@@ -1,0 +1,273 @@
+ASL,ANNO,SETTIMANA_INDICE,ID_PRESTAZIONE,DESC_PRESTAZIONE,COD_PRESTAZIONE,PRENOTAZIONI,PRENOTAZIONI_DAGARANTIRE,PRENOTAZIONI_DAGARANTIRE_B,PRENOTAZIONI_DAGARANTIRE_B_TMAX,PRENOTAZIONI_DAGARANTIRE_D,PRENOTAZIONI_DAGARANTIRE_D_TMAX
+160114,2019,22-26 LUGLIO 2019,1,Prima Visita cardiologica,89.7,535,122,47,19,75,22
+160114,2019,22-26 LUGLIO 2019,2,Prima Visita chirurgia vascolare,89.7,81,19,7,1,12,2
+160114,2019,22-26 LUGLIO 2019,3,Prima Visita endocrinologica,89.7,191,56,16,7,40,24
+160114,2019,22-26 LUGLIO 2019,4,Prima Visita neurologica,89.13,379,55,22,16,33,22
+160114,2019,22-26 LUGLIO 2019,5,Prima Visita oculistica,95.02,856,109,18,14,91,64
+160114,2019,22-26 LUGLIO 2019,6,Prima Visita ortopedica,89.7,572,162,57,10,105,20
+160114,2019,22-26 LUGLIO 2019,7,Prima Visita ginecologica,89.26,220,32,13,7,19,10
+160114,2019,22-26 LUGLIO 2019,8,Prima Visita otorinolaringoiatrica,89.7,660,129,61,38,68,47
+160114,2019,22-26 LUGLIO 2019,9,Prima Visita urologica,89.7,218,60,30,4,30,18
+160114,2019,22-26 LUGLIO 2019,10,Prima Visita dermatologica,89.7,652,131,52,44,79,57
+160114,2019,22-26 LUGLIO 2019,11,Prima Visita fisiatrica,89.7,497,124,43,41,81,78
+160114,2019,22-26 LUGLIO 2019,12,Prima Visita gastroenterologica,89.7,103,39,12,4,27,2
+160114,2019,22-26 LUGLIO 2019,13,Prima Visita oncologica,89.7,64,24,22,22,2,2
+160114,2019,22-26 LUGLIO 2019,14,Prima Visita pneumologica,89.7,198,80,29,4,51,10
+160114,2019,22-26 LUGLIO 2019,15,Mammografia bilaterale,87.37.1,466,81,31,27,50,39
+160114,2019,22-26 LUGLIO 2019,17,TC del Torace,87.41,63,20,11,2,9,8
+160114,2019,22-26 LUGLIO 2019,18,TC del Torace senza e con MDC,87.41.1,165,53,26,9,27,14
+160114,2019,22-26 LUGLIO 2019,20,TC dell’addome superiore senza e con MDC,88.01.2,56,20,11,5,9,5
+160114,2019,22-26 LUGLIO 2019,22,TC dell’addome inferiore senza e con MDC,88.01.4,58,20,11,6,9,6
+160114,2019,22-26 LUGLIO 2019,23,TC dell’addome completo,88.01.5,21,9,5,1,4,2
+160114,2019,22-26 LUGLIO 2019,24,TC dell’addome completo senza e con MDC,88.01.6,131,45,17,2,28,13
+160114,2019,22-26 LUGLIO 2019,26,TC Cranio - encefalo senza e con MDC,87.03.1,91,29,14,6,15,9
+160114,2019,22-26 LUGLIO 2019,28,TC del rachide e dello speco vertebrale toracico,88.38.1,2,1,,,1,1
+160114,2019,22-26 LUGLIO 2019,29,TC del rachide e dello speco vertebrale lombosacrale,88.38.1,16,6,3,1,3,3
+160114,2019,22-26 LUGLIO 2019,34,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare,88.91.1,28,13,5,2,8,2
+160114,2019,22-26 LUGLIO 2019,35,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare senza e con MDC,88.91.2,82,30,15,3,15,4
+160114,2019,22-26 LUGLIO 2019,37,RM di addome inferiore e scavo pelvico senza e con MDC,88.95.5,33,9,4,,5,2
+160114,2019,22-26 LUGLIO 2019,39,RM della colonna in toto senza e con MDC,88.93.1,21,5,4,,1,1
+160114,2019,22-26 LUGLIO 2019,40,Diagnostica ecografica del capo e del collo,88.71.4,276,53,20,11,33,15
+160114,2019,22-26 LUGLIO 2019,41,Eco (color) dopplergrafia cardiaca,88.72.3,100,29,14,4,15,4
+160114,2019,22-26 LUGLIO 2019,42,Eco (color) dopplergrafia dei tronchi sovra aortici,88.73.5,233,72,28,3,44,39
+160114,2019,22-26 LUGLIO 2019,43,Ecografia dell’addome superiore,88.74.1,277,89,28,8,61,48
+160114,2019,22-26 LUGLIO 2019,44,Ecografia dell’addome inferiore,88.75.1,98,28,15,3,13,7
+160114,2019,22-26 LUGLIO 2019,45,Ecografia dell’addome completo,88.76.1,338,86,23,9,63,52
+160114,2019,22-26 LUGLIO 2019,46,Ecografia bilaterale della mammella,88.73.1,542,90,35,29,55,42
+160114,2019,22-26 LUGLIO 2019,48,Ecografia ostetrica,88.78,48,4,2,1,2,2
+160114,2019,22-26 LUGLIO 2019,49,Ecografia ginecologica,88.78.2,27,8,4,,4,4
+160114,2019,22-26 LUGLIO 2019,50,Ecocolor doppler degli arti inferiori arterioso e/o venoso,88.77.2,207,78,27,12,51,29
+160114,2019,22-26 LUGLIO 2019,51,Colonscopia totale con endoscopio flessibile,45.23,121,50,27,3,23,10
+160114,2019,22-26 LUGLIO 2019,54,Esofagogastroduodenoscopia,45.13,82,41,12,3,29,15
+160114,2019,22-26 LUGLIO 2019,55,Esofagogastroduodenoscopia con biopsia in sede unica,45.16,45,15,4,2,11,8
+160114,2019,22-26 LUGLIO 2019,56,Elettrocardiogramma,89.52,589,190,76,47,114,63
+160114,2019,22-26 LUGLIO 2019,57,Elettrocardiogramma dinamico (Holter),89.50,111,35,13,,22,10
+160114,2019,22-26 LUGLIO 2019,58,Test cardiovascolare da sforzo con cicloergometro o con pedana mobile,89.41 - 89.43,51,22,2,,20,3
+160114,2019,22-26 LUGLIO 2019,59,Altri test cardiovascolari da sforzo,89.44,3,2,1,1,1,1
+160114,2019,22-26 LUGLIO 2019,60,Esame audiometrico tonale,95.41.1,202,48,13,5,35,31
+160114,2019,22-26 LUGLIO 2019,61,Spirometria semplice,89.37.1,109,36,11,1,25,5
+160114,2019,22-26 LUGLIO 2019,62,Spirometria globale,89.37.2,66,22,9,2,13,5
+160114,2019,22-26 LUGLIO 2019,66 - 67,ELETTROMIOGRAFIA SEMPLICE [EMG] DEL CAPO fino a 4 muscoli. Analisi qualitativa. Escluso: EMG dell'occhio (95.25) e POLISONNOGRAFIA (89.17),93.08.1,97,39,13,12,26,22
+160113,2019,22-26 LUGLIO 2019,1,Prima Visita cardiologica,89.7,195,76,18,13,58,28
+160113,2019,22-26 LUGLIO 2019,3,Prima Visita endocrinologica,89.7,81,54,21,7,33,12
+160113,2019,22-26 LUGLIO 2019,4,Prima Visita neurologica,89.13,98,27,3,3,24,24
+160113,2019,22-26 LUGLIO 2019,5,Prima Visita oculistica,95.02,277,95,29,2,66,12
+160113,2019,22-26 LUGLIO 2019,6,Prima Visita ortopedica,89.7,203,67,24,10,43,23
+160113,2019,22-26 LUGLIO 2019,7,Prima Visita ginecologica,89.26,52,14,10,8,4,4
+160113,2019,22-26 LUGLIO 2019,8,Prima Visita otorinolaringoiatrica,89.7,204,92,20,19,72,72
+160113,2019,22-26 LUGLIO 2019,9,Prima Visita urologica,89.7,61,33,7,2,26,1
+160113,2019,22-26 LUGLIO 2019,10,Prima Visita dermatologica,89.7,220,45,5,5,40,40
+160113,2019,22-26 LUGLIO 2019,11,Prima Visita fisiatrica,89.7,156,41,8,8,33,33
+160113,2019,22-26 LUGLIO 2019,12,Prima Visita gastroenterologica,89.7,53,26,10,1,16,8
+160113,2019,22-26 LUGLIO 2019,13,Prima Visita oncologica,89.7,14,5,3,3,2,2
+160113,2019,22-26 LUGLIO 2019,14,Prima Visita pneumologica,89.7,62,20,6,,14,14
+160113,2019,22-26 LUGLIO 2019,15,Mammografia bilaterale,87.37.1,61,24,5,1,19,19
+160113,2019,22-26 LUGLIO 2019,17,TC del Torace,87.41,21,5,2,1,3,3
+160113,2019,22-26 LUGLIO 2019,18,TC del Torace senza e con MDC,87.41.1,43,17,8,1,9,3
+160113,2019,22-26 LUGLIO 2019,19,TC dell’addome superiore,88.01.1,2,1,,,1,1
+160113,2019,22-26 LUGLIO 2019,20,TC dell’addome superiore senza e con MDC,88.01.2,3,3,1,,2,1
+160113,2019,22-26 LUGLIO 2019,22,TC dell’addome inferiore senza e con MDC,88.01.4,6,4,1,,3,1
+160113,2019,22-26 LUGLIO 2019,23,TC dell’addome completo,88.01.5,10,5,2,1,3,3
+160113,2019,22-26 LUGLIO 2019,24,TC dell’addome completo senza e con MDC,88.01.6,56,25,13,3,12,4
+160113,2019,22-26 LUGLIO 2019,25,TC Cranio - encefalo,87.03,19,7,6,4,1,1
+160113,2019,22-26 LUGLIO 2019,26,TC Cranio - encefalo senza e con MDC,87.03.1,20,7,1,,6,2
+160113,2019,22-26 LUGLIO 2019,34,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare,88.91.1,40,16,4,,12,4
+160113,2019,22-26 LUGLIO 2019,37,RM di addome inferiore e scavo pelvico senza e con MDC,88.95.5,11,8,5,,3,1
+160113,2019,22-26 LUGLIO 2019,40,Diagnostica ecografica del capo e del collo,88.71.4,81,39,14,4,25,23
+160113,2019,22-26 LUGLIO 2019,41,Eco (color) dopplergrafia cardiaca,88.72.3,40,27,3,2,24,7
+160113,2019,22-26 LUGLIO 2019,42,Eco (color) dopplergrafia dei tronchi sovra aortici,88.73.5,91,42,7,3,35,34
+160113,2019,22-26 LUGLIO 2019,43,Ecografia dell’addome superiore,88.74.1,108,41,14,3,27,27
+160113,2019,22-26 LUGLIO 2019,44,Ecografia dell’addome inferiore,88.75.1,25,10,3,1,7,7
+160113,2019,22-26 LUGLIO 2019,45,Ecografia dell’addome completo,88.76.1,138,59,19,15,40,40
+160113,2019,22-26 LUGLIO 2019,46,Ecografia bilaterale della mammella,88.73.1,72,34,9,2,25,25
+160113,2019,22-26 LUGLIO 2019,48,Ecografia ostetrica,88.78,24,12,6,2,6,6
+160113,2019,22-26 LUGLIO 2019,49,Ecografia ginecologica,88.78.2,8,6,3,1,3,3
+160113,2019,22-26 LUGLIO 2019,50,Ecocolor doppler degli arti inferiori arterioso e/o venoso,88.77.2,126,87,18,3,69,66
+160113,2019,22-26 LUGLIO 2019,51,Colonscopia totale con endoscopio flessibile,45.23,9,8,7,6,1,1
+160113,2019,22-26 LUGLIO 2019,54,Esofagogastroduodenoscopia,45.13,31,24,7,2,17,3
+160113,2019,22-26 LUGLIO 2019,55,Esofagogastroduodenoscopia con biopsia in sede unica,45.16,10,9,1,1,8,5
+160113,2019,22-26 LUGLIO 2019,56,Elettrocardiogramma,89.52,226,79,20,15,59,44
+160113,2019,22-26 LUGLIO 2019,57,Elettrocardiogramma dinamico (Holter),89.50,24,11,5,2,6,6
+160113,2019,22-26 LUGLIO 2019,60,Esame audiometrico tonale,95.41.1,61,24,3,2,21,20
+160113,2019,22-26 LUGLIO 2019,61,Spirometria semplice,89.37.1,53,13,5,4,8,8
+160113,2019,22-26 LUGLIO 2019,62,Spirometria globale,89.37.2,28,8,2,,6,6
+160113,2019,22-26 LUGLIO 2019,64,ELETTROMIOGRAFIA SEMPLICE [EMG] PER ARTO SUPERIORE. Analisi qualitativa fino a 6 muscoli. Non associabile a 93.09.1 e 93.09.2,93.08.1,78,20,2,2,18,18
+160113,2019,22-26 LUGLIO 2019,65,ELETTROMIOGRAFIA SEMPLICE [EMG] PER ARTO INFERIORE fino a 4 muscoli. Analisi qualitativa. Non associabile a 93.09.1 e 93.09.2,93.08.1,75,20,6,6,14,14
+160113,2019,22-26 LUGLIO 2019,66 - 67,ELETTROMIOGRAFIA SEMPLICE [EMG] DEL CAPO fino a 4 muscoli. Analisi qualitativa. Escluso: EMG dell'occhio (95.25) e POLISONNOGRAFIA (89.17),93.08.1,26,6,5,5,1,1
+160106,2019,22-26 LUGLIO 2019,1,Prima Visita cardiologica,89.7,234,62,38,12,24,8
+160106,2019,22-26 LUGLIO 2019,3,Prima Visita endocrinologica,89.7,220,86,54,50,32,18
+160106,2019,22-26 LUGLIO 2019,4,Prima Visita neurologica,89.13,197,60,28,26,32,32
+160106,2019,22-26 LUGLIO 2019,5,Prima Visita oculistica,95.02,270,36,20,12,16,4
+160106,2019,22-26 LUGLIO 2019,6,Prima Visita ortopedica,89.7,454,90,40,6,50,34
+160106,2019,22-26 LUGLIO 2019,7,Prima Visita ginecologica,89.26,142,28,10,10,18,18
+160106,2019,22-26 LUGLIO 2019,8,Prima Visita otorinolaringoiatrica,89.7,334,84,38,4,46,2
+160106,2019,22-26 LUGLIO 2019,10,Prima Visita dermatologica,89.7,326,56,32,30,24,24
+160106,2019,22-26 LUGLIO 2019,11,Prima Visita fisiatrica,89.7,270,42,18,18,24,24
+160106,2019,22-26 LUGLIO 2019,13,Prima Visita oncologica,89.7,42,8,2,2,6,6
+160106,2019,22-26 LUGLIO 2019,14,Prima Visita pneumologica,89.7,160,60,26,4,34,4
+160106,2019,22-26 LUGLIO 2019,15,Mammografia bilaterale,87.37.1,60,8,6,6,2,2
+160106,2019,22-26 LUGLIO 2019,16,Mammografia monolaterale,87.37.2,2,1,,,1,1
+160106,2019,22-26 LUGLIO 2019,17,TC del Torace,87.41,40,15,7,7,8,8
+160106,2019,22-26 LUGLIO 2019,18,TC del Torace senza e con MDC,87.41.1,64,34,15,8,19,10
+160106,2019,22-26 LUGLIO 2019,20,TC dell’addome superiore senza e con MDC,88.01.2,10,8,5,3,3,1
+160106,2019,22-26 LUGLIO 2019,22,TC dell’addome inferiore senza e con MDC,88.01.4,9,7,4,1,3,1
+160106,2019,22-26 LUGLIO 2019,23,TC dell’addome completo,88.01.5,9,2,,,2,2
+160106,2019,22-26 LUGLIO 2019,24,TC dell’addome completo senza e con MDC,88.01.6,68,32,14,9,18,9
+160106,2019,22-26 LUGLIO 2019,25,TC Cranio - encefalo,87.03,32,6,2,2,4,4
+160106,2019,22-26 LUGLIO 2019,26,TC Cranio - encefalo senza e con MDC,87.03.1,29,13,5,2,8,3
+160106,2019,22-26 LUGLIO 2019,29,TC del rachide e dello speco vertebrale lombosacrale,88.38.1,14,7,,,7,7
+160106,2019,22-26 LUGLIO 2019,33,TC di Bacino e articolazioni sacroiliache,88.38.5,9,5,,,5,5
+160106,2019,22-26 LUGLIO 2019,34,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare,88.91.1,12,2,,,2,2
+160106,2019,22-26 LUGLIO 2019,35,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare senza e con MDC,88.91.2,27,15,12,3,3,3
+160106,2019,22-26 LUGLIO 2019,39,RM della colonna in toto senza e con MDC,88.93.1,2,2,,,2,2
+160106,2019,22-26 LUGLIO 2019,40,Diagnostica ecografica del capo e del collo,88.71.4,103,28,6,4,22,16
+160106,2019,22-26 LUGLIO 2019,41,Eco (color) dopplergrafia cardiaca,88.72.3,29,7,1,1,6,5
+160106,2019,22-26 LUGLIO 2019,42,Eco (color) dopplergrafia dei tronchi sovra aortici,88.73.5,126,34,9,9,25,24
+160106,2019,22-26 LUGLIO 2019,43,Ecografia dell’addome superiore,88.74.1,56,12,6,6,6,5
+160106,2019,22-26 LUGLIO 2019,44,Ecografia dell’addome inferiore,88.75.1,29,7,3,3,4,3
+160106,2019,22-26 LUGLIO 2019,45,Ecografia dell’addome completo,88.76.1,193,59,24,23,35,35
+160106,2019,22-26 LUGLIO 2019,46,Ecografia bilaterale della mammella,88.73.1,76,14,8,8,6,6
+160106,2019,22-26 LUGLIO 2019,48,Ecografia ostetrica,88.78,41,3,,,3,3
+160106,2019,22-26 LUGLIO 2019,49,Ecografia ginecologica,88.78.2,12,2,,,2,2
+160106,2019,22-26 LUGLIO 2019,50,Ecocolor doppler degli arti inferiori arterioso e/o venoso,88.77.2,102,36,16,12,20,20
+160106,2019,22-26 LUGLIO 2019,51,Colonscopia totale con endoscopio flessibile,45.23,30,5,,,5,1
+160106,2019,22-26 LUGLIO 2019,54,Esofagogastroduodenoscopia,45.13,42,11,1,1,10,10
+160106,2019,22-26 LUGLIO 2019,55,Esofagogastroduodenoscopia con biopsia in sede unica,45.16,16,2,,,2,2
+160106,2019,22-26 LUGLIO 2019,56,Elettrocardiogramma,89.52,191,33,17,8,16,8
+160106,2019,22-26 LUGLIO 2019,57,Elettrocardiogramma dinamico (Holter),89.50,75,21,5,2,16,16
+160106,2019,22-26 LUGLIO 2019,58,Test cardiovascolare da sforzo con cicloergometro o con pedana mobile,89.41 - 89.43,16,5,4,3,1,1
+160106,2019,22-26 LUGLIO 2019,60,Esame audiometrico tonale,95.41.1,57,5,2,1,3,3
+160106,2019,22-26 LUGLIO 2019,61,Spirometria semplice,89.37.1,100,15,7,1,8,2
+160106,2019,22-26 LUGLIO 2019,66 - 67,ELETTROMIOGRAFIA SEMPLICE [EMG] DEL CAPO fino a 4 muscoli. Analisi qualitativa. Escluso: EMG dell'occhio (95.25) e POLISONNOGRAFIA (89.17),93.08.1,17,6,4,,2,1
+160115,2019,22-26 LUGLIO 2019,1,Prima Visita cardiologica,89.7,283,16,2,2,14,13
+160115,2019,22-26 LUGLIO 2019,3,Prima Visita endocrinologica,89.7,105,9,4,4,5,5
+160115,2019,22-26 LUGLIO 2019,4,Prima Visita neurologica,89.13,171,12,5,5,7,7
+160115,2019,22-26 LUGLIO 2019,5,Prima Visita oculistica,95.02,606,19,6,5,13,8
+160115,2019,22-26 LUGLIO 2019,6,Prima Visita ortopedica,89.7,347,17,7,5,10,6
+160115,2019,22-26 LUGLIO 2019,7,Prima Visita ginecologica,89.26,74,1,,,1,1
+160115,2019,22-26 LUGLIO 2019,8,Prima Visita otorinolaringoiatrica,89.7,341,14,4,3,10,8
+160115,2019,22-26 LUGLIO 2019,10,Prima Visita dermatologica,89.7,350,23,8,6,15,12
+160115,2019,22-26 LUGLIO 2019,11,Prima Visita fisiatrica,89.7,198,7,2,2,5,5
+160115,2019,22-26 LUGLIO 2019,12,Prima Visita gastroenterologica,89.7,88,10,6,5,4,4
+160115,2019,22-26 LUGLIO 2019,13,Prima Visita oncologica,89.7,45,8,6,6,2,2
+160115,2019,22-26 LUGLIO 2019,14,Prima Visita pneumologica,89.7,86,10,6,6,4,3
+160115,2019,22-26 LUGLIO 2019,15,Mammografia bilaterale,87.37.1,177,9,4,4,5,5
+160115,2019,22-26 LUGLIO 2019,17,TC del Torace,87.41,53,4,,,4,4
+160115,2019,22-26 LUGLIO 2019,18,TC del Torace senza e con MDC,87.41.1,105,3,2,2,1,1
+160115,2019,22-26 LUGLIO 2019,23,TC dell’addome completo,88.01.5,12,2,,,2,2
+160115,2019,22-26 LUGLIO 2019,24,TC dell’addome completo senza e con MDC,88.01.6,121,8,4,3,4,4
+160115,2019,22-26 LUGLIO 2019,25,TC Cranio - encefalo,87.03,28,1,,,1,1
+160115,2019,22-26 LUGLIO 2019,26,TC Cranio - encefalo senza e con MDC,87.03.1,64,5,1,1,4,4
+160115,2019,22-26 LUGLIO 2019,34,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare,88.91.1,34,3,1,1,2,2
+160115,2019,22-26 LUGLIO 2019,35,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare senza e con MDC,88.91.2,31,4,3,3,1,1
+160115,2019,22-26 LUGLIO 2019,37,RM di addome inferiore e scavo pelvico senza e con MDC,88.95.5,15,1,,,1,1
+160115,2019,22-26 LUGLIO 2019,40,Diagnostica ecografica del capo e del collo,88.71.4,175,18,5,4,13,13
+160115,2019,22-26 LUGLIO 2019,41,Eco (color) dopplergrafia cardiaca,88.72.3,132,10,2,2,8,8
+160115,2019,22-26 LUGLIO 2019,42,Eco (color) dopplergrafia dei tronchi sovra aortici,88.73.5,179,15,4,4,11,9
+160115,2019,22-26 LUGLIO 2019,43,Ecografia dell’addome superiore,88.74.1,174,17,4,4,13,13
+160115,2019,22-26 LUGLIO 2019,44,Ecografia dell’addome inferiore,88.75.1,75,8,,,8,8
+160115,2019,22-26 LUGLIO 2019,45,Ecografia dell’addome completo,88.76.1,215,25,7,7,18,17
+160115,2019,22-26 LUGLIO 2019,46,Ecografia bilaterale della mammella,88.73.1,223,14,9,9,5,5
+160115,2019,22-26 LUGLIO 2019,47,Ecografia monolaterale della mammella,88.73.2,9,1,,,1,1
+160115,2019,22-26 LUGLIO 2019,48,Ecografia ostetrica,88.78,39,2,1,1,1,1
+160115,2019,22-26 LUGLIO 2019,50,Ecocolor doppler degli arti inferiori arterioso e/o venoso,88.77.2,159,14,5,1,9,6
+160115,2019,22-26 LUGLIO 2019,51,Colonscopia totale con endoscopio flessibile,45.23,81,6,4,4,2,2
+160115,2019,22-26 LUGLIO 2019,54,Esofagogastroduodenoscopia,45.13,68,12,4,4,8,8
+160115,2019,22-26 LUGLIO 2019,55,Esofagogastroduodenoscopia con biopsia in sede unica,45.16,29,1,,,1,1
+160115,2019,22-26 LUGLIO 2019,56,Elettrocardiogramma,89.52,529,33,6,6,27,26
+160115,2019,22-26 LUGLIO 2019,57,Elettrocardiogramma dinamico (Holter),89.50,108,13,5,5,8,8
+160115,2019,22-26 LUGLIO 2019,58,Test cardiovascolare da sforzo con cicloergometro o con pedana mobile,89.41 - 89.43,96,11,3,3,8,8
+160115,2019,22-26 LUGLIO 2019,60,Esame audiometrico tonale,95.41.1,122,3,,,3,3
+160115,2019,22-26 LUGLIO 2019,61,Spirometria semplice,89.37.1,57,2,1,1,1,1
+160115,2019,22-26 LUGLIO 2019,62,Spirometria globale,89.37.2,57,3,,,3,3
+160115,2019,22-26 LUGLIO 2019,65,ELETTROMIOGRAFIA SEMPLICE [EMG] PER ARTO INFERIORE fino a 4 muscoli. Analisi qualitativa. Non associabile a 93.09.1 e 93.09.2,93.08.1,32,4,3,3,1,1
+160115,2019,22-26 LUGLIO 2019,66 - 67,ELETTROMIOGRAFIA SEMPLICE [EMG] DEL CAPO fino a 4 muscoli. Analisi qualitativa. Escluso: EMG dell'occhio (95.25) e POLISONNOGRAFIA (89.17),93.08.1,53,2,1,1,1,1
+160116,2019,22-26 LUGLIO 2019,1,Prima Visita cardiologica,89.7,346,82,37,37,45,16
+160116,2019,22-26 LUGLIO 2019,2,Prima Visita chirurgia vascolare,89.7,78,12,8,8,4,4
+160116,2019,22-26 LUGLIO 2019,3,Prima Visita endocrinologica,89.7,173,42,19,19,23,6
+160116,2019,22-26 LUGLIO 2019,4,Prima Visita neurologica,89.13,245,43,23,23,20,9
+160116,2019,22-26 LUGLIO 2019,5,Prima Visita oculistica,95.02,415,70,27,27,43,6
+160116,2019,22-26 LUGLIO 2019,6,Prima Visita ortopedica,89.7,404,72,45,44,27,7
+160116,2019,22-26 LUGLIO 2019,7,Prima Visita ginecologica,89.26,156,28,21,21,7,7
+160116,2019,22-26 LUGLIO 2019,8,Prima Visita otorinolaringoiatrica,89.7,354,75,36,36,39,7
+160116,2019,22-26 LUGLIO 2019,9,Prima Visita urologica,89.7,99,16,9,9,7,1
+160116,2019,22-26 LUGLIO 2019,10,Prima Visita dermatologica,89.7,460,63,53,53,10,9
+160116,2019,22-26 LUGLIO 2019,11,Prima Visita fisiatrica,89.7,193,14,10,10,4,4
+160116,2019,22-26 LUGLIO 2019,12,Prima Visita gastroenterologica,89.7,68,15,12,12,3,3
+160116,2019,22-26 LUGLIO 2019,14,Prima Visita pneumologica,89.7,133,29,21,21,8,7
+160116,2019,22-26 LUGLIO 2019,17,TC del Torace,87.41,59,16,8,8,8,8
+160116,2019,22-26 LUGLIO 2019,18,TC del Torace senza e con MDC,87.41.1,60,32,6,6,26,24
+160116,2019,22-26 LUGLIO 2019,23,TC dell’addome completo,88.01.5,16,1,,,1,1
+160116,2019,22-26 LUGLIO 2019,24,TC dell’addome completo senza e con MDC,88.01.6,74,35,8,7,27,25
+160116,2019,22-26 LUGLIO 2019,25,TC Cranio - encefalo,87.03,84,15,9,9,6,6
+160116,2019,22-26 LUGLIO 2019,26,TC Cranio - encefalo senza e con MDC,87.03.1,24,8,2,2,6,5
+160116,2019,22-26 LUGLIO 2019,29,TC del rachide e dello speco vertebrale lombosacrale,88.38.1,12,3,2,2,1,1
+160116,2019,22-26 LUGLIO 2019,34,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare,88.91.1,46,5,4,4,1,1
+160116,2019,22-26 LUGLIO 2019,35,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare senza e con MDC,88.91.2,32,9,3,3,6,6
+160116,2019,22-26 LUGLIO 2019,37,RM di addome inferiore e scavo pelvico senza e con MDC,88.95.5,34,7,5,5,2,2
+160116,2019,22-26 LUGLIO 2019,40,Diagnostica ecografica del capo e del collo,88.71.4,176,15,6,5,9,9
+160116,2019,22-26 LUGLIO 2019,41,Eco (color) dopplergrafia cardiaca,88.72.3,39,3,,,3,3
+160116,2019,22-26 LUGLIO 2019,42,Eco (color) dopplergrafia dei tronchi sovra aortici,88.73.5,201,10,3,3,7,7
+160116,2019,22-26 LUGLIO 2019,43,Ecografia dell’addome superiore,88.74.1,64,7,6,6,1,1
+160116,2019,22-26 LUGLIO 2019,44,Ecografia dell’addome inferiore,88.75.1,31,3,2,2,1,1
+160116,2019,22-26 LUGLIO 2019,45,Ecografia dell’addome completo,88.76.1,324,56,30,30,26,26
+160116,2019,22-26 LUGLIO 2019,49,Ecografia ginecologica,88.78.2,25,4,,,4,4
+160116,2019,22-26 LUGLIO 2019,50,Ecocolor doppler degli arti inferiori arterioso e/o venoso,88.77.2,157,8,5,5,3,3
+160116,2019,22-26 LUGLIO 2019,51,Colonscopia totale con endoscopio flessibile,45.23,105,30,16,16,14,14
+160116,2019,22-26 LUGLIO 2019,53,Rettosigmoidoscopia con endoscopio flessibile,45.24,5,5,,,5,5
+160116,2019,22-26 LUGLIO 2019,54,Esofagogastroduodenoscopia,45.13,90,24,12,12,12,12
+160116,2019,22-26 LUGLIO 2019,55,Esofagogastroduodenoscopia con biopsia in sede unica,45.16,11,4,1,1,3,3
+160116,2019,22-26 LUGLIO 2019,56,Elettrocardiogramma,89.52,480,99,45,45,54,54
+160116,2019,22-26 LUGLIO 2019,57,Elettrocardiogramma dinamico (Holter),89.50,93,8,6,6,2,2
+160116,2019,22-26 LUGLIO 2019,58,Test cardiovascolare da sforzo con cicloergometro o con pedana mobile,89.41 - 89.43,59,10,5,5,5,5
+160116,2019,22-26 LUGLIO 2019,60,Esame audiometrico tonale,95.41.1,117,8,1,1,7,7
+160116,2019,22-26 LUGLIO 2019,61,Spirometria semplice,89.37.1,73,12,6,6,6,6
+160116,2019,22-26 LUGLIO 2019,64,ELETTROMIOGRAFIA SEMPLICE [EMG] PER ARTO SUPERIORE. Analisi qualitativa fino a 6 muscoli. Non associabile a 93.09.1 e 93.09.2,93.08.1,40,8,,,8,8
+160116,2019,22-26 LUGLIO 2019,65,ELETTROMIOGRAFIA SEMPLICE [EMG] PER ARTO INFERIORE fino a 4 muscoli. Analisi qualitativa. Non associabile a 93.09.1 e 93.09.2,93.08.1,32,4,2,2,2,2
+160116,2019,22-26 LUGLIO 2019,66 - 67,ELETTROMIOGRAFIA SEMPLICE [EMG] DEL CAPO fino a 4 muscoli. Analisi qualitativa. Escluso: EMG dell'occhio (95.25) e POLISONNOGRAFIA (89.17),93.08.1,28,4,3,3,1,1
+160112,2019,22-26 LUGLIO 2019,1,Prima Visita cardiologica,89.7,185,24,13,13,11,5
+160112,2019,22-26 LUGLIO 2019,2,Prima Visita chirurgia vascolare,89.7,52,6,1,1,5,3
+160112,2019,22-26 LUGLIO 2019,3,Prima Visita endocrinologica,89.7,148,19,7,6,12,4
+160112,2019,22-26 LUGLIO 2019,4,Prima Visita neurologica,89.13,121,13,3,2,10,1
+160112,2019,22-26 LUGLIO 2019,5,Prima Visita oculistica,95.02,323,19,,,19,14
+160112,2019,22-26 LUGLIO 2019,6,Prima Visita ortopedica,89.7,319,31,3,3,28,28
+160112,2019,22-26 LUGLIO 2019,7,Prima Visita ginecologica,89.26,83,6,1,1,5,5
+160112,2019,22-26 LUGLIO 2019,8,Prima Visita otorinolaringoiatrica,89.7,272,22,5,5,17,9
+160112,2019,22-26 LUGLIO 2019,10,Prima Visita dermatologica,89.7,278,4,1,1,3,3
+160112,2019,22-26 LUGLIO 2019,11,Prima Visita fisiatrica,89.7,182,12,3,3,9,9
+160112,2019,22-26 LUGLIO 2019,12,Prima Visita gastroenterologica,89.7,46,5,2,1,3,3
+160112,2019,22-26 LUGLIO 2019,13,Prima Visita oncologica,89.7,36,11,6,6,5,5
+160112,2019,22-26 LUGLIO 2019,14,Prima Visita pneumologica,89.7,89,11,4,4,7,6
+160112,2019,22-26 LUGLIO 2019,15,Mammografia bilaterale,87.37.1,125,5,1,1,4,4
+160112,2019,22-26 LUGLIO 2019,17,TC del Torace,87.41,85,17,8,8,9,7
+160112,2019,22-26 LUGLIO 2019,18,TC del Torace senza e con MDC,87.41.1,80,11,7,6,4,3
+160112,2019,22-26 LUGLIO 2019,20,TC dell’addome superiore senza e con MDC,88.01.2,10,1,,,1,1
+160112,2019,22-26 LUGLIO 2019,22,TC dell’addome inferiore senza e con MDC,88.01.4,12,1,,,1,1
+160112,2019,22-26 LUGLIO 2019,23,TC dell’addome completo,88.01.5,11,4,3,3,1,1
+160112,2019,22-26 LUGLIO 2019,24,TC dell’addome completo senza e con MDC,88.01.6,80,15,10,10,5,4
+160112,2019,22-26 LUGLIO 2019,25,TC Cranio - encefalo,87.03,36,7,1,1,6,6
+160112,2019,22-26 LUGLIO 2019,26,TC Cranio - encefalo senza e con MDC,87.03.1,48,6,4,4,2,2
+160112,2019,22-26 LUGLIO 2019,29,TC del rachide e dello speco vertebrale lombosacrale,88.38.1,11,3,,,3,3
+160112,2019,22-26 LUGLIO 2019,34,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare,88.91.1,21,6,2,2,4,3
+160112,2019,22-26 LUGLIO 2019,35,RM di encefalo e tronco encefalico, giunzione cranio spinale e relativo distretto vascolare senza e con MDC,88.91.2,39,17,15,15,2,2
+160112,2019,22-26 LUGLIO 2019,37,RM di addome inferiore e scavo pelvico senza e con MDC,88.95.5,32,7,6,6,1,1
+160112,2019,22-26 LUGLIO 2019,40,Diagnostica ecografica del capo e del collo,88.71.4,137,19,4,4,15,12
+160112,2019,22-26 LUGLIO 2019,41,Eco (color) dopplergrafia cardiaca,88.72.3,59,10,2,2,8,8
+160112,2019,22-26 LUGLIO 2019,42,Eco (color) dopplergrafia dei tronchi sovra aortici,88.73.5,234,20,1,1,19,17
+160112,2019,22-26 LUGLIO 2019,43,Ecografia dell’addome superiore,88.74.1,50,4,,,4,3
+160112,2019,22-26 LUGLIO 2019,44,Ecografia dell’addome inferiore,88.75.1,34,3,,,3,3
+160112,2019,22-26 LUGLIO 2019,45,Ecografia dell’addome completo,88.76.1,191,10,4,4,6,6
+160112,2019,22-26 LUGLIO 2019,46,Ecografia bilaterale della mammella,88.73.1,76,5,1,1,4,4
+160112,2019,22-26 LUGLIO 2019,48,Ecografia ostetrica,88.78,26,8,,,8,6
+160112,2019,22-26 LUGLIO 2019,49,Ecografia ginecologica,88.78.2,8,1,,,1,1
+160112,2019,22-26 LUGLIO 2019,50,Ecocolor doppler degli arti inferiori arterioso e/o venoso,88.77.2,256,27,1,1,26,21
+160112,2019,22-26 LUGLIO 2019,51,Colonscopia totale con endoscopio flessibile,45.23,59,14,9,7,5,2
+160112,2019,22-26 LUGLIO 2019,54,Esofagogastroduodenoscopia,45.13,45,5,4,4,1,1
+160112,2019,22-26 LUGLIO 2019,55,Esofagogastroduodenoscopia con biopsia in sede unica,45.16,31,7,3,3,4,2
+160112,2019,22-26 LUGLIO 2019,56,Elettrocardiogramma,89.52,236,29,13,13,16,12
+160112,2019,22-26 LUGLIO 2019,57,Elettrocardiogramma dinamico (Holter),89.50,77,6,1,1,5,5
+160112,2019,22-26 LUGLIO 2019,58,Test cardiovascolare da sforzo con cicloergometro o con pedana mobile,89.41 - 89.43,23,3,1,1,2,1
+160112,2019,22-26 LUGLIO 2019,60,Esame audiometrico tonale,95.41.1,75,5,,,5,5
+160112,2019,22-26 LUGLIO 2019,61,Spirometria semplice,89.37.1,37,4,1,1,3,2
+160112,2019,22-26 LUGLIO 2019,64,ELETTROMIOGRAFIA SEMPLICE [EMG] PER ARTO SUPERIORE. Analisi qualitativa fino a 6 muscoli. Non associabile a 93.09.1 e 93.09.2,93.08.1,26,12,1,,11,11
+160112,2019,22-26 LUGLIO 2019,65,ELETTROMIOGRAFIA SEMPLICE [EMG] PER ARTO INFERIORE fino a 4 muscoli. Analisi qualitativa. Non associabile a 93.09.1 e 93.09.2,93.08.1,54,13,4,,9,9
