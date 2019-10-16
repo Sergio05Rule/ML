@@ -293,3 +293,38 @@ class Univariate:
 
         print('Score Function after stochastic = ', self.MeanSquaredError())
         return self.THETAS
+
+    def verbose_miniBatchGD(self,alfa, iterations, b):
+
+        for _ in range(iterations):
+
+            row = 0
+
+            while row < len(self.Y):
+                end_row = row + b
+                if end_row <= len(self.Y):
+
+                    print('Calcolo i nuovi dalla riga ', row, 'alla riga ', end_row - 1)
+                    new_thetas = self.new_thetas(alfa, row, end_row)
+                    self.THETAS = new_thetas
+                row = end_row
+
+        print('Score Function after stochastic = ', self.MeanSquaredError())
+        return self.THETAS
+
+    def miniBatchGD(self,alfa, iterations, b):
+
+        for _ in range(iterations):
+
+            row = 0
+
+            while row < len(self.Y):
+                end_row = row + b
+                if end_row <= len(self.Y):
+
+                    new_thetas = self.new_thetas(alfa, row, end_row)
+                    self.THETAS = new_thetas
+                row = end_row
+
+        print('Score Function after stochastic = ', self.MeanSquaredError())
+        return self.THETAS

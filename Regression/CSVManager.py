@@ -95,7 +95,6 @@ class CSVManager:
 
     def clean_empty_id(self, id_tocheck = None):
 
-        selcted_id = None
         cleaned_csv = list()
         id_index = -1
 
@@ -143,7 +142,6 @@ class CSVManager:
 
     def clean_variables(self, variables_list):
 
-        file = self.file_name
         indeces = []
         attributi = self.giveme_attributes()
 
