@@ -1,4 +1,3 @@
-import matplotlib.pyplot as plt
 import csv
 import CSVManager as CSVM
 import Input as IN

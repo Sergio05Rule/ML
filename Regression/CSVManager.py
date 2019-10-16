@@ -137,6 +137,7 @@ class CSVManager:
             csv_writer.writerows(cleaned_csv)
 
         print('Dataset cleaned from lines with empty attribute: ', id_tocheck)
+        self.file_name = new_file_name
         return new_file_name
 
 
@@ -154,7 +155,6 @@ class CSVManager:
 
         file = self.clean_empty_id(target)
         for feature in features:
-
             file = self.clean_empty_id(feature)
 
         # --------- PRELEVO GLI INDICI DI TARGET E FEATURE ----------
@@ -196,4 +196,5 @@ class CSVManager:
             for line in result:
                 csv_writer.writerows(line)
 
+        self.file_name = new_file_name
         return new_file_name
