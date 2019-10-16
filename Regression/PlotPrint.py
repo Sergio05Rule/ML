@@ -33,3 +33,16 @@ def print_graph_line(Y, X, slope, intercept):
 
 def show():
     plt.show()
+
+def Polynomial(thetas, min, max):
+
+    X = np.linspace(min, max, 10, endpoint=True)
+
+    Y = list()
+
+    for x in X:
+        value = 0
+        for index, coeff in enumerate(thetas):
+            value += coeff * x ** index
+        Y.append(value)
+    plt.plot(X, Y, color = 'b')

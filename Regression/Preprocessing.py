@@ -18,7 +18,7 @@ def variance(features):
 
 def min_max_norm(features):
     print('--- Min/Max Normalization ---')
-    b = int(input('Inserisci l interveallo dei valori in cui vuoi che ricada la X normalizzata\nb = '))
+    b = int(input('Inserisci l intervallo dei valori in cui vuoi che ricada la X normalizzata\nb = '))
     a = int(input('a = '))
 
     _max = max(features)
@@ -32,10 +32,17 @@ def min_max_norm(features):
 
     return new_features
 
+def standard_deviation(features):
+
+    dev_std = pow(variance(features) , 0.5) #radquad(variance)
+    return dev_std
+
 def zscore_norm(features):
     print('--- ZScore Normalization ---')
     mean = average(features)
-    dev_std = pow(variance(features) , 0.5) #radquad(variance)
+    dev_std = standard_deviation(features)
+    print('mean = ', mean)
+    print('dev = ', dev_std)
 
     new_features = []
 
@@ -43,15 +50,5 @@ def zscore_norm(features):
         temp = (feature - mean) / dev_std
         new_features.append(temp)
 
+
     return new_features
-
-#DEBUG
-'''
-list = []
-list.append(10)
-list.append(5)
-list.append(3)
-
-aux = zscore_norm(list)
-print(aux)
-'''

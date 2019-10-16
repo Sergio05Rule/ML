@@ -1,21 +1,14 @@
+import Preprocessing as PRE
+
 class Univariate:
 
     def __init__(self, observations):
         self.observations = observations
-        self.Y = list()
-        self.X = list()
+        self.Y = observations[0]
+        self.X = observations[1]
 
-        for observation in observations[0]:
-            new_Y = int(observation)
-            self.Y.append(new_Y)
-
-        for observation in observations[1]:
-            new_X = []
-            for x in observation:
-                new_x = int(x)
-                new_X.append(new_x)
-            self.X.append(new_X)
-
+        self.pre_processedY = self.Y
+        self.pre_processedX = self.X.copy()
 
         self.THETAS = list()
         for _ in self.X:
@@ -160,7 +153,7 @@ class Univariate:
             print('ROW: ', row)
             print('Gradient before computing: ', gradient)
 
-            update = self.j_gradient_row(row)
+            update = self.verbose_j_gradient_row(row)
 
             print('Gradient increment: ', update)
 
@@ -326,5 +319,29 @@ class Univariate:
                     self.THETAS = new_thetas
                 row = end_row
 
-        print('Score Function after stochastic = ', self.MeanSquaredError())
+        print('Score Function after mini batch = ', self.MeanSquaredError())
         return self.THETAS
+
+    def predict(self, x):
+
+        value = 0
+        for index, coeff in enumerate(self.THETAS):
+            value += coeff * x ** index
+
+        return value
+
+    def predict_Znorm(self, x):
+
+        norm_x = x - PRE.average(self.pre_processedX[1])
+        norm_x /= PRE.standard_deviation(self.pre_processedX[1])
+
+
+        value = 0
+        for index, coeff in enumerate(self.THETAS):
+            value += coeff * norm_x ** index
+
+        value *= PRE.standard_deviation(self.pre_processedY)
+        value += PRE.average(self.pre_processedY)
+
+
+        return value

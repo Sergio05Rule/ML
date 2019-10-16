@@ -45,19 +45,28 @@ class CSVManager:
         # ---------- ID DELLA VARIABILE TARGET E LISTA DEGLI ID DELLE FEATURE ----------
         target = variables_list[0]
         features = variables_list[1]
+        polinomials = variables_list[2]
 
         features_index = list()
         target_index = None
+        polinomials_indeces = list()
 
         X = list()         # è la matrice X dei valori delle feature
         Y = list()         # è il vettore Y dei valori della feature
+        Z = list()
 
         output = list()
 
         # ---------- SETTO LA MATRICE X ----------
-        for _ in range(len(features) + 1):          # IL +1 SERVE A CONSIDERARE LA PRIMA RIGA DI 1
+        for _ in range(len(features) + 1):          # IL +1 SERVE A CONSIDERARE LA FEATURE FITTIZIA x0
 
             X.append([])
+
+        # ---------- SETTO LA MATRICE Z ----------
+        for _ in range(len(polinomials)):
+
+            Z.append([])
+
 
         # ---------- SETTO L'INDICE DELLA VAR TARGET E GLI INDICI DELLE FEATURE ----------
         target_index = attributi.index(target)
@@ -67,7 +76,17 @@ class CSVManager:
             # ---------- CREA UNA LISTA DI INDICI RIFERITI ALLE FEATURE NEL DATASET ----------
             features_index.append(attributi.index(var))         # lista del tipo features_index = [ indice di x1, indice di x2, indice di x3, ... ]
 
-        print('Indici: \nTARGET: ',target_index,'\nFEATURE: ', features_index)
+        for poli in polinomials:
+
+            new_list = list()
+
+            for term in poli:
+
+                new_list.append(attributi.index(term))
+            polinomials_indeces.append(new_list)
+
+
+        print('INDICI: \nTARGET = ',target_index,'\nFEATURE = ', features_index, '\nVARIABILI POLINOMIALI: ', polinomials_indeces)
 
 
         # ---------- PRELEVA DAL DATASET PULITO I VALORI DI Y E X ----------
@@ -79,15 +98,26 @@ class CSVManager:
 
             for line in csv_reader:
 
-                Y.append(line[target_index])
+                Y.append(float(line[target_index]))
 
                 for index in range(len(X)):
 
                     if index == 0:
                         X[0].append(1)
                     else:
-                        X[index].append(line[features_index[index-1]])
+                        X[index].append(float(line[features_index[index-1]]))
 
+                for index, poli in enumerate(polinomials_indeces):
+
+                    value = 1
+
+                    for factor in poli:
+
+                        value *= float(line[factor])
+                    Z[index].append(value)
+
+        for z in Z:
+            X.append(z)
         output.append(Y)
         output.append(X)
         return output
