@@ -9,7 +9,7 @@ import UnivariateLinearRegression as ULR
 
 file1 = 'monitoraggiotempidiattesa.csv'
 file2 = 'mydata.csv'
-csv = CSVM.CSVManager(file2)
+csv = CSVM.CSVManager(file1)
 
 # ---------- INDICA LA VARIABILE DA PREDIRE ----------
 
@@ -25,38 +25,12 @@ values = csv.giveme_values(variables)
 if len(values[1]) == 2:
     #print('REGRESSIONE UNIVARIATA')
     regression = ULR.Univariate(values)
-    #print('error = ', regression.MeanSquaredError())
+    print(regression.stochasticGD(0.00001, 1000000))
 
-    #print(regression.j_gradient())
-    print(regression.verbose_batchGD(0.05, 1000))
-
-
-    '''for index, _ in enumerate(regression.THETAS):
-        regression.THETAS[index] = 1
-
-    for cicle in range(10):
-
-        new_theta = regression.batch_GD(0.1)
-        regression.THETAS = new_theta
-        regression.MeanSquaredError()
-        print('THETAS = ', new_theta, ' ', regression.THETAS)
-    '''
-    #regression.batch_GD()
 
 elif len(values[1]) > 2:
     print('REGRESSIONE MULTIVARIATA')
-    regression = ULR.Univariate(values)
-    print('error = ', regression.MeanSquaredError())
 
-    while _ in range(10):
-
-        for index, _ in enumerate(regression.THETAS):
-
-            regression.THETAS[index] = 1
-
-        new_theta = regression.batch_GD(1)
-        regression.THETAS = new_theta
-        print('error = ', regression.MeanSquaredError())
 
 # ---------- STAMPA RISULTATO DELLA REGRESSIONE ----------
 

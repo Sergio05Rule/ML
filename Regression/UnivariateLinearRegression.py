@@ -141,7 +141,11 @@ class Univariate:
 
         return update
 
-    def verbose_j_gradient(self):
+    def verbose_j_gradient(self, start_row = 0, end_row = None):
+
+        if end_row == None:
+
+            end_row = len(self.Y)
 
         gradient = list()
 
@@ -151,7 +155,7 @@ class Univariate:
 
             gradient.append(0)
 
-        for row, _ in enumerate(self.Y):            # per tutte le righe del dataset
+        for row in range(start_row, end_row):            # per tutte le righe del dataset da start row a end row
 
             print('ROW: ', row)
             print('Gradient before computing: ', gradient)
@@ -167,7 +171,11 @@ class Univariate:
         return gradient
 
 
-    def j_gradient(self):
+    def j_gradient(self, start_row = 0, end_row = None):
+
+        if end_row == None:
+
+            end_row = len(self.Y)
 
         gradient = list()
 
@@ -177,7 +185,7 @@ class Univariate:
 
             gradient.append(0)
 
-        for row, _ in enumerate(self.Y):            # per tutte le righe del dataset
+        for row in range(start_row, end_row):            # per tutte le righe del dataset da start row a end row
 
             update = self.j_gradient_row(row)
 
@@ -187,14 +195,16 @@ class Univariate:
 
 
 
-    def verbose_new_thetas(self, alfa, rows = None ):           # rows è il numero di righe del dataset su cui siamo lavorando, di default è tutto il dataset
+    def verbose_new_thetas(self, alfa, start_row = 0, end_row = None ):           # rows è il numero di righe del dataset su cui siamo lavorando, di default è tutto il dataset
 
-        if rows == None:
-            rows = len(self.Y)
+        if end_row == None:
+            end_row = len(self.Y)
+
         theta_new = list()
+        rows = end_row - start_row
 
-        print('verbose_new_thetas\nalfa = ', alfa, 'rows', rows)
-        update = self.j_gradient()
+        print('verbose_new_thetas\nalfa = ', alfa, 'start_row', start_row, 'end_row', end_row)
+        update = self.verbose_j_gradient(start_row, end_row)
         print('UPDATE = ', update)
 
         for index, theta in enumerate(self.THETAS):
@@ -216,27 +226,27 @@ class Univariate:
         return theta_new
 
 
-    def new_thetas(self, alfa, rows = None ):           # rows è il numero di righe del dataset su cui siamo lavorando, di default è tutto il dataset
+    def new_thetas(self, alfa, start_row = 0, end_row = None):           # rows è il numero di righe del dataset su cui siamo lavorando, di default è tutto il dataset
 
-        if rows == None:
-            rows = len(self.Y)
+        if end_row == None:
+            end_row = len(self.Y)
+
         theta_new = list()
-        update = self.j_gradient()
+        rows = end_row - start_row
+
+        update = self.j_gradient(start_row, end_row)
 
         for index, theta in enumerate(self.THETAS):
 
             _theta_new = alfa * update[index] / rows
-
             _theta_new = theta - _theta_new
 
             theta_new.append(_theta_new)
 
         return theta_new
 
-    def verbose_batchGD(self, alfa, iterations, rows = None):
+    def verbose_batchGD(self, alfa, iterations):
 
-        if rows == None:
-            rows = len(self.Y)
 
         print('INITIAL J = ', self.MeanSquaredError())
 
@@ -244,8 +254,42 @@ class Univariate:
 
             print('BATCH GD, ITERATION: ', _)
 
-            new_thetas = self.new_thetas(alfa, rows)
+            new_thetas = self.verbose_new_thetas(alfa)
             print('New THETAS = ', new_thetas)
             self.THETAS = new_thetas
 
             print('\nJ after iteration ', _ ,' = ', self.MeanSquaredError(), '\n')
+
+    def batchGD(self, alfa, iterations):
+
+        for _ in range(iterations):
+
+            new_thetas = self.new_thetas(alfa)
+            self.THETAS = new_thetas
+
+        print('Score Function after batch = ', self.MeanSquaredError())
+
+        return self.THETAS
+
+    def verbose_stochasticGD(self, alfa, iterations):
+
+        for _ in range(iterations):
+
+            for row in range(len(self.Y)):
+                print('STOCHASTIC ON ROW = ', row)
+                new_thetas = self.verbose_new_thetas(alfa, row, row+1)
+                self.THETAS = new_thetas
+                print(self.THETAS, 'ERROR= ',self.MeanSquaredError())
+        print('Score Function after stochastic = ', self.MeanSquaredError())
+        return self.THETAS
+
+    def stochasticGD(self, alfa, iterations):
+
+        for _ in range(iterations):
+
+            for row in range(len(self.Y)):
+                new_thetas = self.new_thetas(alfa, row, row+1)
+                self.THETAS = new_thetas
+
+        print('Score Function after stochastic = ', self.MeanSquaredError())
+        return self.THETAS
