@@ -9,7 +9,7 @@ import Preprocessing as PRE
 
 file1 = 'monitoraggiotempidiattesa.csv'
 file2 = 'mydata.csv'
-csv = CSVM.CSVManager(file2)
+csv = CSVM.CSVManager(file1)
 
 # ---------- INDICA LA VARIABILE DA PREDIRE ----------
 
@@ -18,10 +18,10 @@ csv = CSVM.CSVManager(file2)
 variables1 = ['PRENOTAZIONI_DAGARANTIRE',['PRENOTAZIONI'],[['PRENOTAZIONI','PRENOTAZIONI'],['PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI'],['PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI'], ['PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI'],['PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI','PRENOTAZIONI']]]
 variables2 = ['PRENOTAZIONI_DAGARANTIRE',['PRENOTAZIONI'],[]]
 
-#variables = variables2
+variables = variables1
 
 # ---------- INPUT DINAMICO ----------
-variables = IN.InputTargetFeature(csv)
+#variables = IN.InputTargetFeature(csv)
 
 # ---------- ESTRAPOLA DATI ----------
 
@@ -31,13 +31,13 @@ values = csv.giveme_values(variables)
 
 
 if len(variables[1]) == 1 and len(variables[2])==0:
-    print('REGRESSIONE LINEARE UNIVARIATA')
+    print('\n\nREGRESSIONE LINEARE UNIVARIATA\n\n')
 elif len(variables[2])>0:
-    print('REGRESSIONE POLINOMIALE')
+    print('\n\nREGRESSIONE POLINOMIALE\n\n')
 elif len(variables[1]) > 1  and len(variables[2])==0:
-    print('REGRESSIONE LINEARE MULTIVARIATA')
+    print('\n\nREGRESSIONE LINEARE MULTIVARIATA\n\n')
 
-regression = REG.Univariate(values)
+regression = REG.Regression(values)
 
 # ---------- NORMALIZZAZIONE ----------
 print('NORMALIZZAZIONE Y')
@@ -56,7 +56,11 @@ thetas = regression.batchGD(0.001, 100000)
 
 print('Thetas = ', thetas)
 
-print(regression.predict_Znorm(5))
+# ---------- ESEMPIO DI PREDIZIONE ----------
+
+print(regression.predict_Znorm([100, 1000, 10000, 100000, 1000000, 10000000]))  # regressione polinomiale di grado 6
+print(regression.predict_Znorm([100]))  # regressione univariata
+
 
 # ---------- GRAFICO STAMPATO SOLO IN CASO DI UNIVARIATA REGRESSIONE ----------
 

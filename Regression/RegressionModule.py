@@ -1,20 +1,18 @@
 import Preprocessing as PRE
 
-class Univariate:
+class Regression:
 
     def __init__(self, observations):
         self.observations = observations
         self.Y = observations[0]
         self.X = observations[1]
 
-        self.pre_processedY = self.Y
-        self.pre_processedX = self.X.copy()
-
         self.THETAS = list()
         for _ in self.X:
             self.THETAS.append(2)
 
-
+        self.pre_processedY = self.Y
+        self.pre_processedX = self.X.copy()
 
     def VerboseMeanSquaredError(self):
 
@@ -322,26 +320,70 @@ class Univariate:
         print('Score Function after mini batch = ', self.MeanSquaredError())
         return self.THETAS
 
-    def predict(self, x):
+    def predict(self, X):
 
         value = 0
+
         for index, coeff in enumerate(self.THETAS):
-            value += coeff * x ** index
+
+            if index == 0:
+                value += coeff
+            else:
+                value += coeff * X[index] ** index
 
         return value
 
-    def predict_Znorm(self, x):
-
-        norm_x = x - PRE.average(self.pre_processedX[1])
-        norm_x /= PRE.standard_deviation(self.pre_processedX[1])
-
+    def verbose_predict_Znorm(self, X):
 
         value = 0
+        norm_X = list()
+        norm_x = 0
+
+        norm_X.append(1)            # x0 normato
+
+        for index, x in enumerate(X):
+
+
+            print('normo ', x)
+            print('media')
+            norm_x = x - PRE.average(self.pre_processedX[index+1])
+            norm_x /= PRE.standard_deviation(self.pre_processedX[index+1])
+
+            norm_X.append(norm_x)
+
+        print('valori normati', norm_X)
+
         for index, coeff in enumerate(self.THETAS):
-            value += coeff * norm_x ** index
+            value += coeff * norm_X[index] ** index
+            print(coeff)
+            print(norm_X[index])
+            print(index)
+            print(coeff * norm_X[index] ** index)
 
         value *= PRE.standard_deviation(self.pre_processedY)
         value += PRE.average(self.pre_processedY)
 
+
+        return value
+
+    def predict_Znorm(self, X):
+
+        value = 0
+        norm_X = list()
+        norm_x = 0
+
+        norm_X.append(1)            # x0 normato
+
+        for index, x in enumerate(X):
+            norm_x = x - PRE.average(self.pre_processedX[index+1])
+            norm_x /= PRE.standard_deviation(self.pre_processedX[index+1])
+
+            norm_X.append(norm_x)
+
+        for index, coeff in enumerate(self.THETAS):
+            value += coeff * norm_X[index] ** index
+
+        value *= PRE.standard_deviation(self.pre_processedY)
+        value += PRE.average(self.pre_processedY)
 
         return value
