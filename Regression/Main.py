@@ -2,7 +2,7 @@ import csv
 import CSVManager as CSVM
 import Input as IN
 import UnivariateLinearRegression as ULR
-
+import PlotPrint as PP
 
 # ---------- PRENDI IN INPUT IL TRAINING SET ----------
 
@@ -24,7 +24,12 @@ values = csv.giveme_values(variables)
 if len(values[1]) == 2:
     #print('REGRESSIONE UNIVARIATA')
     regression = ULR.Univariate(values)
-    print(regression.miniBatchGD(0.000001, 10000, 100))
+
+    thetas = regression.miniBatchGD(0.000001, 10000, 100)
+    print('Thetas = ', thetas)
+    PP.print_graph(regression.Y, regression.X[1])
+    PP.print_line(thetas[0], thetas[1])
+    PP.show()
 
 
 elif len(values[1]) > 2:
