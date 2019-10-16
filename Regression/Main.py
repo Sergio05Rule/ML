@@ -24,7 +24,7 @@ values = csv.giveme_values(variables)
 if len(values[1]) == 2:
     #print('REGRESSIONE UNIVARIATA')
     regression = ULR.Univariate(values)
-    print(regression.stochasticGD(0.00001, 1000000))
+    print(regression.stochasticGD(0.0001, 10000))
 
 
 elif len(values[1]) > 2:

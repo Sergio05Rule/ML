@@ -130,7 +130,7 @@ class CSVManager:
                     print('NO NO MAMACITA')
 
         # ---------- SCRIVE IL NUOVO FILE SENZA ELEMENTI NULLI PER L'ATTRIBUTO SCELTO ----------
-        new_file_name = self.file_name.replace('.csv','') + '_' + id_tocheck + '.csv'
+        new_file_name = 'Dataset' + '.csv'
         with open(new_file_name, 'w') as csv_file:
 
             csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"')
