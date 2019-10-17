@@ -11,13 +11,10 @@ class Regression:
 
         self.THETAS = list()
         for _ in self.X:
-            #self.THETAS.append(random.randint(-10,10))
             self.THETAS.append(0)
 
         self.pre_processedY = self.Y
         self.pre_processedX = self.X.copy()
-
-
 
     def VerboseMeanSquaredError(self):
 
@@ -63,18 +60,9 @@ class Regression:
             error += single_error
 
         error = error / (2 * len(self.Y))
-        print('\n\n ERROR / 2m = ', error, 'with m = ', len(self.Y))
+
 
         return error
-
-    def MeanSquaredError_M(self):
-        x = np.matrix(self.X)
-        x = x.transpose()
-        h = np.dot(x, self.THETAS)
-        sqrd_error = (np.sum(np.array(h - self.Y) ** 2 )) / (2*len(self.Y))
-        return sqrd_error
-
-
 
     def verbose_prediction_error_row(self, row):
 
@@ -270,10 +258,11 @@ class Regression:
 
             new_thetas = self.new_thetas(alfa)
             self.THETAS = new_thetas
-            print('ITERATION',_,' -> ',self.MeanSquaredError())
+
+            print('Error = ', self.MeanSquaredError())
+
 
         print('Score Function after batch = ', self.MeanSquaredError())
-
 
         return self.THETAS
 
@@ -332,6 +321,8 @@ class Regression:
                     self.THETAS = new_thetas
                 row = end_row
 
+            print('Error = ', self.MeanSquaredError())
+
         print('Score Function after mini batch = ', self.MeanSquaredError())
         return self.THETAS
 
@@ -342,63 +333,25 @@ class Regression:
         for index, coeff in enumerate(self.THETAS):
 
             if index == 0:
-                value += coeff
+                value += round(coeff, 8)
             else:
-                value += coeff * X[index] ** index
-
+                value += coeff * X[index-1]
+                print(coeff)
         return value
 
-    def verbose_predict_Znorm(self, X):
+    def predict_M(self, X):
 
-        value = 0
-        norm_X = list()
-        norm_x = 0
-
-        norm_X.append(1)            # x0 normato
-
-        for index, x in enumerate(X):
+        return np.dot(X,self.THETAS)
 
 
-            print('normo ', x)
-            print('media')
-            norm_x = x - PRE.average(self.pre_processedX[index+1])
-            norm_x /= PRE.standard_deviation(self.pre_processedX[index+1])
+    def solution_zscore(self, solution):
 
-            norm_X.append(norm_x)
-
-        print('valori normati', norm_X)
-
-        for index, coeff in enumerate(self.THETAS):
-            value += coeff * norm_X[index] ** index
-            print(coeff)
-            print(norm_X[index])
+        new_solution = list()
+        new_x = 0
+        for index, x in enumerate(solution):
+            new_x = 0
             print(index)
-            print(coeff * norm_X[index] ** index)
+            new_x = (x - PRE.average(self.pre_processedX[index+1])) / (PRE.standard_deviation(self.pre_processedX[index+1]))
+            new_solution.append(new_x)
 
-        value *= PRE.standard_deviation(self.pre_processedY)
-        value += PRE.average(self.pre_processedY)
-
-
-        return value
-
-    def predict_Znorm(self, X):
-
-        value = 0
-        norm_X = list()
-        norm_x = 0
-
-        norm_X.append(1)            # x0 normato
-
-        for index, x in enumerate(X):
-            norm_x = x - PRE.average(self.pre_processedX[index+1])
-            norm_x /= PRE.standard_deviation(self.pre_processedX[index+1])
-
-            norm_X.append(norm_x)
-
-        for index, coeff in enumerate(self.THETAS):
-            value += coeff * norm_X[index] ** index
-
-        value *= PRE.standard_deviation(self.pre_processedY)
-        value += PRE.average(self.pre_processedY)
-
-        return value
+        return new_solution

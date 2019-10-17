@@ -1,7 +1,8 @@
 import random
 from math import e
 import math
-
+import Preprocessing as PRE
+import numpy as np
 
 class LogisticRegression:
 
@@ -12,6 +13,7 @@ class LogisticRegression:
         self.THETAS = list()
         for _ in self.X:
             self.THETAS.append(random.randint(-1,1))
+        self.pre_processedX = self.X.copy()
 
 
     def prediction(self, X):
@@ -212,11 +214,26 @@ class LogisticRegression:
         for _ in range(iterations):
             new_thetas = self.new_thetas(alfa)
             self.THETAS = new_thetas
-            print('ITERATION',_,' -> ',self.CostFunction())
 
         #print('Cost Function after batch = ', self.CostFunction())
 
         return self.THETAS
+
+    def predict_M(self, X):
+
+        return np.dot(X,self.THETAS)
+
+
+    def solution_zscore(self, solution):
+
+        new_solution = list()
+        new_x = 0
+        for index, x in enumerate(solution):
+            new_x = 0
+            new_x = (x - PRE.average(self.pre_processedX[index+1])) / (PRE.standard_deviation(self.pre_processedX[index+1]))
+            new_solution.append(new_x)
+
+        return new_solution
 
 
 input = ([ [1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0], [ [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], [60,65,70, 75,80,85,90, 95, 100, 67, 55, 50, 19 ,30, 20, 40, 23, 54, 33, 25]  ]  ])
@@ -225,40 +242,3 @@ input = ([ [1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0], [ [1,1,1,1,1,1,1,1,1,1,1,1
 
 classification = LogisticRegression(input)
 print('Thetas = ',classification.THETAS)
-
-
-'''print('PREDICTION')
-print(classification.prediction(classification.RowX(0)))
-print(classification.prediction(classification.RowX(1)))
-print(classification.prediction(classification.RowX(2)))
-print(classification.prediction(classification.RowX(3)))
-
-print('LOGISTIC')
-print(classification.LogisticFunction(classification.RowX(0)))
-print(classification.LogisticFunction(classification.RowX(1)))
-print(classification.LogisticFunction(classification.RowX(2)))
-print(classification.LogisticFunction(classification.RowX(3)))
-
-print('ROW ERROR')
-print(classification.prediction_error_row(0))
-print(classification.prediction_error_row(1))
-print(classification.prediction_error_row(2))
-print(classification.prediction_error_row(3))
-
-print('J GRADIENT ROW')
-print(classification.verbose_j_gradient_row(0))
-print(classification.verbose_j_gradient_row(1))
-print(classification.verbose_j_gradient_row(2))
-print(classification.verbose_j_gradient_row(3))
-'''
-#print('\n\nJ GRADIENT')
-#print(classification.j_gradient())
-
-#print(classification.Probability())
-#print('COST = ' , classification.CostFunction())
-
-
-print(classification.batchGD(0.01, 100000))
-print(classification.CostFunction())
-#print(classification.LogisticFunction([1,30]))
-print(classification.LogisticFunction([1,61]))
