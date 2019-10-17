@@ -156,7 +156,7 @@ class CSVManager:
                     if line[id_index] != '':
                         cleaned_csv.append(line)
                 except:
-                    print('NO NO MAMACITA')
+                    print('Exception')
 
         # ---------- SCRIVE IL NUOVO FILE SENZA ELEMENTI NULLI PER L'ATTRIBUTO SCELTO ----------
         new_file_name = 'Dataset' + '.csv'

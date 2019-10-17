@@ -212,6 +212,7 @@ class LogisticRegression:
         for _ in range(iterations):
             new_thetas = self.new_thetas(alfa)
             self.THETAS = new_thetas
+            print('ITERATION',_,' -> ',self.CostFunction())
 
         #print('Cost Function after batch = ', self.CostFunction())
 

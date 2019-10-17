@@ -1,5 +1,6 @@
 import Preprocessing as PRE
 import random
+import numpy as np
 
 class Regression:
 
@@ -10,10 +11,13 @@ class Regression:
 
         self.THETAS = list()
         for _ in self.X:
-            self.THETAS.append(random.randint(-10,10))
+            #self.THETAS.append(random.randint(-10,10))
+            self.THETAS.append(0)
 
         self.pre_processedY = self.Y
         self.pre_processedX = self.X.copy()
+
+
 
     def VerboseMeanSquaredError(self):
 
@@ -61,8 +65,16 @@ class Regression:
         error = error / (2 * len(self.Y))
         print('\n\n ERROR / 2m = ', error, 'with m = ', len(self.Y))
 
-
         return error
+
+    def MeanSquaredError_M(self):
+        x = np.matrix(self.X)
+        x = x.transpose()
+        h = np.dot(x, self.THETAS)
+        sqrd_error = (np.sum(np.array(h - self.Y) ** 2 )) / (2*len(self.Y))
+        return sqrd_error
+
+
 
     def verbose_prediction_error_row(self, row):
 
@@ -258,8 +270,10 @@ class Regression:
 
             new_thetas = self.new_thetas(alfa)
             self.THETAS = new_thetas
+            print('ITERATION',_,' -> ',self.MeanSquaredError())
 
         print('Score Function after batch = ', self.MeanSquaredError())
+
 
         return self.THETAS
 
