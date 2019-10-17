@@ -1,4 +1,5 @@
 import Preprocessing as PRE
+import random
 
 class Regression:
 
@@ -9,7 +10,7 @@ class Regression:
 
         self.THETAS = list()
         for _ in self.X:
-            self.THETAS.append(2)
+            self.THETAS.append(random.randint(-10,10))
 
         self.pre_processedY = self.Y
         self.pre_processedX = self.X.copy()
