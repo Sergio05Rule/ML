@@ -1,69 +1,128 @@
 import CSVManager as CSVM
-import Input as IN
 import Models
+import csv
+import Preprocessing as PRE
+import numpy as np
 
-
+print('\n----- ESEGUO RICHIESTA (1) -----')
 # ---------- PRENDI IN INPUT IL TRAINING SET ----------
-file1 = 'Dataset/wine.csv'
-csv = CSVM.CSVManager(file1)
-
+file1 = 'Dataset/candy.csv'
+csv_file = CSVM.CSVManager(file1)
 
 # ---------- INDICA L'INDICE DEL TARGET ----------
-target_index = 11
-
-
+target_index = 10
 # ---------- INDICA GLI INDICI DELLE FEATURE ----------
-features_indeces = [0,1,2,3,4,5,6,7,8,9,10]
-#features_indeces = [1]
+features_indeces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9,10,11,12]
 
 # ---------- INDICA LE FEATURE MULTICLASSE----------
 '''
 NOTA: vanno inserite ciascuna come lista degli indici che le compongono.
-Tutte queste liste vanno inseite all'interno della multiclass_feature
+Tutte queste liste vanno inseite all'interno della polinomials_indeces
 Ad esempio: [ [ 1, 3, 4] , [2, 2] , [3 , 3, 1 ] ]
 '''
-multiclass_feature = []
-
+polinomials_indeces = []
 
 # ---------- INPUT STATICO NOTI GLI INDICI----------
+variables_indeces = [target_index, features_indeces, polinomials_indeces]
+classification_values = ['1']  # VALORE DA CLASSIFICARE
 
-variables_indeces = [target_index, features_indeces, multiclass_feature]
-classification_values = ['5','6','7']             # VALORE DA CLASSIFICARE
+# ---------- PRINT NORMALIZED CSV RICHIESTA (1)----------
+# LEGGO DATI DAL DATASET
+values = csv_file.giveme_values_indeces(variables_indeces)
+zScored = list()
+minmax = list()
 
+# LEGGO LE FEATURE E LE NORMALIZZO
+for index, feature in enumerate(values[1][1:11:]):
+    zScored.append(PRE.zscore_norm(feature))
 
-# ---------- INPUT DINAMICO ----------
+for index, feature in enumerate(values[1][1:11:]):
+    minmax.append(PRE.min_max_norm(feature, 0, 5))
 
-#variables = IN.InputTargetFeature(csv)
+# AGGIUNGO LE ULTIME TRE COLONNE NON NORMALIZZATE
+zScored.append(values[1][11])
+zScored.append(values[1][12])
+zScored.append(values[1][13])
 
+minmax.append(values[1][11])
+minmax.append(values[1][12])
+minmax.append(values[1][13])
+
+zScored = np.transpose(zScored)
+minmax = np.transpose(minmax)
+
+#min max (1.1)
+with open('Dataset/Zscored.csv', 'w') as csv_file:
+    csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"')
+    csv_writer.writerows(zScored)
+#Zscore (1.2)
+with open('Dataset/Minmax.csv', 'w') as csv_file:
+    csv_writer = csv.writer(csv_file, delimiter=',', quotechar='"')
+    csv_writer.writerows(minmax)
 
 # ---------- MODELLO ----------
+print('\n----- ESEGUO RICHIESTA (2) (3) -----')
 
-model = Models.LogisticRegression(csv, variables_indeces, classification_values)
+csv_file = CSVM.CSVManager(file1)
+features_indeces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+variables_indeces = [target_index, features_indeces, polinomials_indeces]
 
+print('INDICI: \nTARGET = ', target_index, '\nFEATURE = ', features_indeces, '\nVARIABILI POLINOMIALI: ',polinomials_indeces)
+
+model = Models.LogisticRegression(csv_file, variables_indeces, classification_values)
 
 # ---------- NORMALIZZAZIONE ----------
-
-model.Normalization(IN.normalizationControl())
-
+model.Normalization()
 
 # ---------- FITTING ----------
-alfa = 0.6
-iterations = 100
-b = 100
+alfa = 0.25
+iterations = 1000
 _lambda = 0
 
-model.fit(alfa, iterations, _lambda, b)
+model.fit(alfa, iterations, _lambda)
 model.print_solution()
 
 # ---------- VALORE DA PREDIRE ----------
+predict = [0, 0, 0, 1, 0, 0, 1, 0.87199998, 0.84799999, 49.524113]
+# ---------- PREDIZIONE RICHIESTA (3) ----------
+model.prediction(predict, 'CIOCCOLATO')
 
-predict = [6.0, 0.31, 0.47, 3.6, 0.067, 18.0, 42.0, 0.99549, 3.39, 0.66, 11.0]
-#predict = [7.8, 0.88, 0, 2.6, 98, 25.0, 67.0, 0.9968, 3.2, 0.68, 9.8]
-#predict = [8.1,0.38,0.28,2.1,0.066,13.0,30.0,0.9968,3.23,0.73,9.7]  #7
-#predict = [10.6,0.34,0.49,3.2,0.078,20.0,78.0,0.9992,3.19,0.7,10.0] #6
-#predict = [10.6,0.34,0.49,3.2,0.078,20.0,78.0,0.9992,3.19,0.7,10.0, 0.34**2, 0.34**3]
-#predict = [0.31]
+# ---------- PREDIZIONE RICHIESTA (4) (5) ----------
+print('\n----- ESEGUO RICHIESTA (4) (5) -----')
+#Non avendo previsto nella nostra libreria una classificazione su più y,
+#viene rilanciato 3 volte il modello cambiando la target var
+features_indeces = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+predict = [1, 0, 0, 0, 1, 0, 0, 0.186, 0.26699999, 41.904308]
 
-# ---------- PREDIZIONE ----------
+print('PROBABILITà CHE SIA UN CIOCCOLATO')
+target_index = 10
+variables_indeces = [target_index, features_indeces, polinomials_indeces]
+classification_values = ['1']  # VALORE DA CLASSIFICARE
+print('INDICI: \nTARGET = ', target_index, '\nFEATURE = ', features_indeces, '\nVARIABILI POLINOMIALI: ',polinomials_indeces)
+model = Models.LogisticRegression(csv_file, variables_indeces, classification_values)
+model.Normalization()
+model.fit(alfa, iterations, _lambda)
+model.print_solution()
+model.prediction(predict, 'CIOCCOLATO')
 
-model.prediction(predict)
+print('\nPROBABILITà CHE SIA UNA FRUTTA')
+target_index = 11
+variables_indeces = [target_index, features_indeces, polinomials_indeces]
+classification_values = ['1']  # VALORE DA CLASSIFICARE
+print('INDICI: \nTARGET = ', target_index, '\nFEATURE = ', features_indeces, '\nVARIABILI POLINOMIALI: ',polinomials_indeces)
+model = Models.LogisticRegression(csv_file, variables_indeces, classification_values)
+model.Normalization()
+model.fit(alfa, iterations, _lambda)
+model.print_solution()
+model.prediction(predict, 'FRUTTA')
+
+print('\nPROBABILITà CHE SIA UN DOLCETTO')
+target_index = 12
+variables_indeces = [target_index, features_indeces, polinomials_indeces]
+classification_values = ['1']  # VALORE DA CLASSIFICARE
+print('INDICI: \nTARGET = ', target_index, '\nFEATURE = ', features_indeces, '\nVARIABILI POLINOMIALI: ',polinomials_indeces)
+model = Models.LogisticRegression(csv_file, variables_indeces, classification_values)
+model.Normalization()
+model.fit(alfa, iterations, _lambda)
+model.print_solution()
+model.prediction(predict, 'DOLCETTO')
