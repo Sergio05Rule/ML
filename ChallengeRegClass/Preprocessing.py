@@ -1,4 +1,4 @@
-
+import statistics
 
 def average(features):
     return sum(features) / len(features)
@@ -23,7 +23,11 @@ def standard_deviation(features):
     return dev_std
 
 
-def min_max_norm(features, a,b):
+def min_max_norm(features):
+    print('--- Min/Max Normalization ---')
+    b = int(input('Inserisci l intervallo dei valori in cui vuoi che ricada la X normalizzata\nb = '))
+    a = int(input('a = '))
+
     _max = max(features)
     _min = min(features)
 
@@ -36,11 +40,11 @@ def min_max_norm(features, a,b):
     return new_features
 
 def zscore_norm(features):
-    #print('--- Normalizzazione Z-Score ---')
+    print('--- Normalizzazione Z-Score ---')
     mean = average(features)
     dev_std = standard_deviation(features)
-    #print('media = ', mean)
-    #print('deviazione standard = ', dev_std)
+    print('media = ', mean)
+    print('deviazione standard = ', dev_std)
 
     new_features = []
 

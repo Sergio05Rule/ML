@@ -12,8 +12,7 @@ class LogisticRegression:
         self.X = observations[1]
         self.THETAS = list()
         for _ in self.X:
-            #self.THETAS.append(random.randint(-1,1))
-            self.THETAS.append(0)
+            self.THETAS.append(random.randint(-1,1))
         self.pre_processedX = self.X.copy()
 
 
@@ -27,6 +26,14 @@ class LogisticRegression:
             prediction += theta * X[index]
 
         return prediction
+
+    def verbose_LogisticFunction(self, X):
+
+        num = 1
+        den = 1 + e ** (-(self.prediction(X)))
+        print(-self.prediction(X))
+        print(e ** (-(self.prediction(X))))
+        return num / den
 
     def LogisticFunction(self, X):
 
@@ -81,6 +88,21 @@ class LogisticRegression:
             cost = 1 - math.log(self.Probability_row(row))
         return cost
 
+    def verbose_CostFunction_row(self, row):
+
+        y = self.Y[row]
+        cost = 0
+
+        if y == 1:
+            print('Y = ', y)
+            cost = math.log(self.Probability_row(row))
+
+        elif y == 0:
+            print('error', row, self.Probability_row(row))
+            cost = 1 - math.log(self.Probability_row(row))
+        print('cost at line ', row, ' = ', cost)
+        return cost
+
     def CostFunction(self, _labda = 0):
 
         cost = 0
@@ -95,6 +117,17 @@ class LogisticRegression:
 
         return cost
 
+    def verbose_prediction_error_row(self, row):
+        print('---- prediction error row ----')
+        print('ROW: ', row)
+        X = self.RowX(row)
+        print('X = ', X)
+        logistic = self.LogisticFunction(X)
+        print('Logistic = ', logistic)
+        error = logistic - self.Y[row]
+
+        return error
+
     def prediction_error_row(self, row):
 
         X = self.RowX(row)
@@ -103,6 +136,25 @@ class LogisticRegression:
 
         return error
 
+
+    def verbose_j_gradient_row(self, row):  # restituisce una lista dei gradienti di J calcolati per ogni teta
+
+        print('---- J GRADIENT ROW ----')
+        print('ROW: ', row)
+        gradient = 0
+        update = list()
+
+        prediction_error = self.prediction_error_row(row)
+        print('prediction_error = ',prediction_error)
+
+        # ---------- update i = gradient * xi ----------
+        for index, X in enumerate(self.X):
+            gradient = prediction_error * X[row]
+            print('X[row]', X[row])
+            print('gradient contribute = ', prediction_error * X[row])
+            update.append(gradient)
+
+        return update
 
     def j_gradient_row(self, row):  # restituisce una lista dei gradienti di J calcolati per ogni teta
 
@@ -170,7 +222,44 @@ class LogisticRegression:
             new_thetas = self.new_thetas(alfa, _lambda)
             self.THETAS = new_thetas
 
-        print('DOPO ',iterations,' ITERAZIONI: J = ', self.CostFunction())
+            print('J = ', self.CostFunction())
+
+        return self.THETAS
+    
+    def miniBatchGD(self,alfa, iterations, b, _lambda = 0):
+
+        for _ in range(iterations):
+
+            row = 0
+
+            while row < len(self.Y):
+                end_row = row + b
+                if end_row <= len(self.Y):
+
+                    new_thetas = self.new_thetas(alfa, _lambda, row, end_row)
+                    self.THETAS = new_thetas
+
+                else:
+                    end_row = len(self.Y)
+
+                    new_thetas = self.new_thetas(alfa, _lambda, row, end_row)
+                    self.THETAS = new_thetas
+                    
+                row = end_row
+                
+            print('J = ', self.CostFunction())
+
+        return self.THETAS
+    
+    def stochasticGD(self, alfa, iterations, _lambda = 0):
+
+        for _ in range(iterations):
+
+            for row in range(len(self.Y)):
+                new_thetas = self.new_thetas(alfa, _lambda, row, row+1)
+                self.THETAS = new_thetas
+
+                print('J = ', self.CostFunction())
 
         return self.THETAS
 
