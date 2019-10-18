@@ -3,7 +3,6 @@ import LogisticRegression as LG
 import Preprocessing as PRE
 import PlotPrint as PP
 import numpy as np
-import CSVManager as csv
 
 
 class UnivariateRegressionModel():
@@ -28,14 +27,14 @@ class UnivariateRegressionModel():
                     self.model.X[index] = PRE.zscore_norm(x)
                 
                 
-    def fit(self, alfa, iterations, b=None):
+    def fit(self, alfa, iterations, _lambda = 0, b=None):
 
-        print('FIRST ERROR = ', self.model.CostFunction())
-        self.thetas = self.model.batchGD(alfa, iterations)
+        print('J ALLA PRIMA ITERAZIONE = ', self.model.CostFunction())
+        self.thetas = self.model.batchGD(alfa, iterations, _lambda)
 
 
     def print_solution(self):
-        print('SOLUTION THETAS: ', self.thetas)
+        print('TETA DEL MODELLO: ', self.thetas)
 
         PP.print_graph(self.model.Y, self.model.X[1])
         PP.Polynomial(self.thetas, (min(self.model.X[1]) * 0.5), (max(self.model.X[1]) * 1.5))
@@ -46,7 +45,7 @@ class UnivariateRegressionModel():
         predict = self.model.solution_zscore(input)
         predict = np.insert(predict, 0, 1)
 
-        print('PREDICTED VALUE FOR INSERT FEATURES = ', self.model.predict_M(predict))
+        print('VALORE PREDETTO = ', self.model.predict_M(predict))
 
 
 class MultivariateRegressionModel():
@@ -69,20 +68,20 @@ class MultivariateRegressionModel():
                     print('NORMALIZZAZIONE X', index)
                     self.model.X[index] = PRE.zscore_norm(x)
 
-    def fit(self, alfa, iterations, b=None):
+    def fit(self, alfa, iterations, _lambda = 0, b=None):
 
-        print('FIRST ERROR = ', self.model.CostFunction())
-        self.thetas = self.model.batchGD(alfa, iterations)
+        print('J ALLA PRIMA ITERAZIONE = ', self.model.CostFunction())
+        self.thetas = self.model.batchGD(alfa, iterations, _lambda)
 
     def print_solution(self):
-        print('SOLUTION THETAS: ', self.thetas)
+        print('TETA DEL MODELLO: ', self.thetas)
 
     def prediction(self, input):
 
         predict = self.model.solution_zscore(input)
         predict = np.insert(predict, 0, 1)
 
-        print('PREDICTED VALUE FOR INSERT FEATURES = ', self.model.predict_M(predict))
+        print('VALORE PREDETTO  = ', self.model.predict_M(predict))
 
 
 class LogisticRegression:
@@ -93,14 +92,13 @@ class LogisticRegression:
         self.values = csv.giveme_values_indeces(variables_indeces, 0)
         self.filterY(classification_values[0])
         # ---------- MODELLO ----------
-
+        self.classification_values = classification_values
         self.model = LG.LogisticRegression(self.values)  # REGRESSIONE
         self.thetas = None
 
     def filterY(self, target_value):
 
         filteredY = list()
-        print(self.values)
 
         for y in self.values[0]:
             if y == target_value:
@@ -118,24 +116,26 @@ class LogisticRegression:
                     print('NORMALIZZAZIONE X', index)
                     self.model.X[index] = PRE.zscore_norm(x)
 
-    def fit(self, alfa, iterations, b = None):
+    def fit(self, alfa, iterations, _lambda = 0, b = None):
 
-        print(self.model.Y)
-        print('FIRST ERROR = ', self.model.CostFunction())
-        #self.thetas = self.model.batchGD(alfa, iterations)
-        self.thetas = self.model.miniBatchGD(alfa, iterations, b)
+        print('J ALLA PRIMA ITERAZIONE = ', self.model.CostFunction())
+        self.thetas = self.model.miniBatchGD(alfa, iterations, b, _lambda)
 
 
     def print_solution(self):
-        print('SOLUTION THETAS: ', self.thetas)
+        print('TETA DEL MODELLO: ', self.thetas)
 
     def prediction(self, input):
 
         predict = self.model.solution_zscore(input)
         predict = np.insert(predict, 0, 1)
 
-        print('PREDICTED VALUE FOR INSERT FEATURES = ', self.model.predict_M(predict))
-        print('PROBABILITY = ', self.model.LogisticFunction(predict))
+        print('PROBABILITÀ = ', self.model.LogisticFunction(predict))
+        print('PREDETTO COME: ', end='')
+        if self.model.LogisticFunction(predict) > 0.5:
+            print(self.classification_values[0])
+        else:
+            print('NON', self.classification_values[0])
 
 
 class MulticlassLogisticRegression:
@@ -155,7 +155,6 @@ class MulticlassLogisticRegression:
     def filterY(self, target_value):
 
         filteredY = list()
-        print(self.values)
         
         for y in self.values[0]:
             
@@ -184,24 +183,23 @@ class MulticlassLogisticRegression:
                     print('NORMALIZZAZIONE X', index)
                     self.model.X[index] = PRE.zscore_norm(x)
 
-    def fit(self, alfa, iterations, b=None):
+    def fit(self, alfa, iterations, _lambda = 0, b=None):
         
         for target in self.classification_values:
             
             self.filtered_values = self.filterY(target)
             self.model.Y = self.filtered_values[0]
-            print(self.model.Y)    
-            self.single_fit(alfa, iterations, b)
+            self.single_fit(alfa, iterations, _lambda, b)
     
-    def single_fit(self, alfa, iterations, b=None):
+    def single_fit(self, alfa, iterations, _lambda = 0, b=None):
 
-        print('FIRST ERROR = ', self.model.CostFunction())
-        self.thetas = self.model.batchGD(alfa, iterations)
+        print('J ALLA PRIMA ITERAZIONE = ', self.model.CostFunction())
+        self.thetas = self.model.batchGD(alfa, iterations, _lambda)
         self.thetas_list.append(self.thetas)
 
     def print_solution(self):
         for theta in self.thetas_list:
-            print('SOLUTION THETAS: ', theta)
+            print('TETA DEL MODELLO: ', theta)
 
     def prediction(self, input):
         
@@ -212,8 +210,8 @@ class MulticlassLogisticRegression:
         for index, theta in enumerate(self.thetas_list):
             self.model.THETAS = theta
             self.model.LogisticFunction(predict)
-            print('PROBABILITY TO PREDICT ', self.classification_values[index], ' = ', self.model.LogisticFunction(predict))
+            print('PROBABILITÀ DI PREDIRE ', self.classification_values[index], ' = ', self.model.LogisticFunction(predict))
             probabilities.append(self.model.LogisticFunction(predict))
 
         _max = max(probabilities)
-        print('PREDICTED AS ', self.classification_values[probabilities.index(_max)])
+        print('PREDETTO COME ', self.classification_values[probabilities.index(_max)])

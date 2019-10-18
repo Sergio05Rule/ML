@@ -12,8 +12,8 @@ def print_graph(X, Y):
 
 def print_line(slope, intercept):
     axes = plt.gca()
-    plt.xlabel('alberto')
-    plt.ylabel('crtes')
+    plt.xlabel('FEATURE')
+    plt.ylabel('TARGET')
     x_vals = np.array(axes.get_xlim())
     y_vals = slope + intercept * x_vals
     plt.plot(x_vals, y_vals, color = 'b')
@@ -21,8 +21,8 @@ def print_line(slope, intercept):
 
 def print_graph_line(Y, X, slope, intercept):
     axes = plt.gca()
-    plt.xlabel('alberto')
-    plt.ylabel('crtes')
+    plt.xlabel('FEATURE')
+    plt.ylabel('TARGET')
 
     style.use ('classic')
     plt.scatter(Y, X, color='r')
@@ -37,8 +37,11 @@ def show():
 def Polynomial(thetas, min, max):
 
     X = np.linspace(min, max, 10, endpoint=True)
-
     Y = list()
+    
+    plt.xlabel('FEATURE')
+    plt.ylabel('TARGET')
+    style.use ('classic')
 
     for x in X:
         value = 0

@@ -1,5 +1,4 @@
 import Preprocessing as PRE
-import random
 import numpy as np
 
 class Regression:
@@ -44,7 +43,7 @@ class Regression:
 
         return error
 
-    def MeanSquaredError(self):
+    def MeanSquaredError(self, _lambda = 0):
 
         error = 0
 
@@ -58,6 +57,8 @@ class Regression:
 
             single_error = (hypotesis - observation) ** 2
             error += single_error
+            
+        error += self.regularization_term() * _lambda
 
         error = error / (2 * len(self.Y))
 
@@ -218,7 +219,7 @@ class Regression:
         return theta_new
 
 
-    def new_thetas(self, alfa, start_row = 0, end_row = None):           # rows è il numero di righe del dataset su cui siamo lavorando, di default è tutto il dataset
+    def new_thetas(self, alfa, start_row = 0, end_row = None, _lambda = 0):           # rows è il numero di righe del dataset su cui siamo lavorando, di default è tutto il dataset
 
         if end_row == None:
             end_row = len(self.Y)
@@ -231,7 +232,12 @@ class Regression:
         for index, theta in enumerate(self.THETAS):
 
             _theta_new = alfa * update[index] / rows
-            _theta_new = theta - _theta_new
+
+            if index == 0:
+                _theta_new = theta - _theta_new
+
+            else:
+                _theta_new = theta * (1 - ((alfa * _lambda) / rows)) - _theta_new
 
             theta_new.append(_theta_new)
 
@@ -250,19 +256,14 @@ class Regression:
             print('New THETAS = ', new_thetas)
             self.THETAS = new_thetas
 
-            print('\nJ after iteration ', _ ,' = ', self.MeanSquaredError(), '\n')
 
-    def batchGD(self, alfa, iterations):
+    def batchGD(self, alfa, iterations, _lambda=0):
 
         for _ in range(iterations):
-
-            new_thetas = self.new_thetas(alfa)
+            new_thetas = self.new_thetas(alfa, _lambda)
             self.THETAS = new_thetas
 
             print('J = ', self.CostFunction())
-
-
-        print('Score Function after batch = ', self.MeanSquaredError())
 
         return self.THETAS
 
@@ -278,17 +279,16 @@ class Regression:
         print('Score Function after stochastic = ', self.MeanSquaredError())
         return self.THETAS
 
-    def stochasticGD(self, alfa, iterations):
+    def stochasticGD(self, alfa, iterations, _lambda=0):
 
         for _ in range(iterations):
 
             for row in range(len(self.Y)):
-                new_thetas = self.new_thetas(alfa, row, row+1)
+                new_thetas = self.new_thetas(alfa, _lambda, row, row + 1)
                 self.THETAS = new_thetas
 
                 print('J = ', self.CostFunction())
 
-        print('Score Function after stochastic = ', self.MeanSquaredError())
         return self.THETAS
 
     def verbose_miniBatchGD(self,alfa, iterations, b):
@@ -306,10 +306,9 @@ class Regression:
                     self.THETAS = new_thetas
                 row = end_row
 
-        print('Score Function after stochastic = ', self.MeanSquaredError())
         return self.THETAS
 
-    def miniBatchGD(self,alfa, iterations, b):
+    def miniBatchGD(self, alfa, iterations, b, _lambda=0):
 
         for _ in range(iterations):
 
@@ -319,21 +318,19 @@ class Regression:
                 end_row = row + b
                 if end_row <= len(self.Y):
 
-                    new_thetas = self.new_thetas(alfa, row, end_row)
+                    new_thetas = self.new_thetas(alfa, _lambda, row, end_row)
                     self.THETAS = new_thetas
+
                 else:
                     end_row = len(self.Y)
 
-                    new_thetas = self.new_thetas(alfa, row, end_row)
+                    new_thetas = self.new_thetas(alfa, _lambda, row, end_row)
                     self.THETAS = new_thetas
-                    
+
                 row = end_row
 
-                print('J = ', self.CostFunction())
+            print('J = ', self.CostFunction())
 
-            print('Error = ', self.MeanSquaredError())
-
-        print('Score Function after mini batch = ', self.MeanSquaredError())
         return self.THETAS
 
     def predict(self, X):
@@ -368,3 +365,13 @@ class Regression:
     def CostFunction(self):
         
         return self.MeanSquaredError()
+    
+    def regularization_term(self):
+        
+        sum = 0
+        for theta in self.THETAS[1::]:
+            
+            sum += theta ** 2
+        
+        return sum
+
