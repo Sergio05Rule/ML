@@ -94,15 +94,15 @@ if __name__ == '__main__':
     #x = [1,2,3]
     candy = [1, 0, 0, 0, 1, 0, 0, 0.186, 0.26699999, 41.904308] # u dolc
     choco = [0, 0, 0, 1, 0, 0, 1, 0.87199998, 0.84799999, 49.524113] #ciucculat
-    sergio1 = [0, 0, 0, 0, 0, 0, 1, 0.31299999, 0.31299999, 44.375519]
-    sergio2 = [1, 0, 0, 0, 1, 0, 0, 0.186, 0.26699999, 41.904308]
-    sergio3 = [0, 0, 0, 1, 0, 0, 1, 0.87199998, 0.84799999, 49.524113]
+    sergio1 = [0, 0, 0, 0, 0, 0, 1, 0.31299999, 0.31299999, 44.375519] #dolce
+    sergio2 = [1, 0, 0, 0, 1, 0, 0, 0.186, 0.26699999, 41.904308] #dolce
+    sergio3 = [0, 0, 0, 1, 0, 0, 1, 0.87199998, 0.84799999, 49.524113] #cioccolato
     prediction = sergio3
     prediction = Preprocessing.zscore_norm_prediction(prediction, means, std_devs)
     solution = model.forward_propagation(prediction)[-1]
 
     print('----- SOLUTION -----')
-    print(solution)
+    print('- W -\n',solution,'\n')
     for sol in solution:
         if sol > 0.5:
             print('1')
