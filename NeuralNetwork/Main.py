@@ -16,19 +16,19 @@ if __name__ == '__main__':
     data = Dataset(file)
 
     #matrix = [[1,2,3,1,0,0],[2,3,5,1,0,0],[-5,6,-8,0,1,0],[-1,-1,-3,0,0,1]]
-    matrix = [[1,2,3,1,0,0]]
+    #matrix = [[1,2,3,1,0,0]]
 
-    matrix = pd.DataFrame(matrix)
+    #matrix = pd.DataFrame(matrix)
 
     # ----- FEATURES -----
 
-    #X_indeces = [0,1,2,3,4,5,6,7,8,9]
-    X_indeces = [0,1,2]
+    X_indeces = [0,1,2,3,4,5,6,7,8,9]
+    #X_indeces = [0,1,2]
 
     # ----- TARGET -----
 
-    #Y_indeces = [10, 11, 12]
-    Y_indeces = [3,4,5]
+    Y_indeces = [10, 11, 12]
+    #Y_indeces = [3,4,5]
 
     # ----- PREPROCESSING -----
 
@@ -63,8 +63,8 @@ if __name__ == '__main__':
 
     # ----- DATA FROM DATASET  -----
 
-    X = Input.giveme_cols(matrix, X_indeces)
-    Y = Input.giveme_cols(matrix, Y_indeces)
+    X = Input.giveme_cols(data.dataset, X_indeces)
+    Y = Input.giveme_cols(data.dataset, Y_indeces)
 
 
     trainingX = Input.giveme_cols(trainingset, X_indeces)
@@ -76,33 +76,35 @@ if __name__ == '__main__':
     testX = Input.giveme_cols(testset, X_indeces)
     testY = Input.giveme_cols(testset, Y_indeces)
 
-    hidden_layers_neurons = [4]
+    hidden_layers_neurons = [5,5]
     gianluca_neurons = 2
 
-    alfa = 1
-    _lambda = 0
+    alfa = 0.25
+    _lambda = 0.0000000001
 
     model = NeuralNetwork(X,Y,hidden_layers_neurons, alfa, _lambda)
     model.backward_propagation()
     model.print_cost()
 
-    for it in range(10000):
+    for it in range(1000):
 
         model.backward_propagation()
         model.print_cost()
 
-    for index in range(len(model.network)):
-        print('LAYER THETAS')
-        print(model.network[index])
-        print('BIAS WEIGHTS')
-        print(model.bias_weights[index])
+    #x = [1,2,3]
+    candy = [1, 0, 0, 0, 1, 0, 0, 0.186, 0.26699999, 41.904308] # u dolc
+    choco = [0, 0, 0, 1, 0, 0, 1, 0.87199998, 0.84799999, 49.524113] #ciucculat
+    sergio1 = [0, 0, 0, 0, 0, 0, 1, 0.31299999, 0.31299999, 44.375519]
+    sergio2 = [1, 0, 0, 0, 1, 0, 0, 0.186, 0.26699999, 41.904308]
+    sergio3 = [0, 0, 0, 1, 0, 0, 1, 0.87199998, 0.84799999, 49.524113]
+    prediction = sergio3
+    prediction = Preprocessing.zscore_norm_prediction(prediction, means, std_devs)
+    solution = model.forward_propagation(prediction)[-1]
 
-    x = [1,2,3]
-    print(model.forward_propagation()[-1])
-    solution = (model.forward_propagation(x)[-1])
+    print('----- SOLUTION -----')
+    print(solution)
     for sol in solution:
-
         if sol > 0.5:
-            print('1 \n')
+            print('1')
         else:
-            print('0 \n')
+            print('0')
